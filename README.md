@@ -30,3 +30,8 @@ Usage of ./dht2mqtt:
   -sensor-name string
     	sensor name (default "sensor")
 ```
+
+Example:
+```
+~ $ DHT2MQTT_PASSWORD="awesomepassword" ./dht2mqtt -mqtt-url tcp://10.0.0.1:1883 -sensor-name garden -mqtt-username dht
+```
