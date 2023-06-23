@@ -7,6 +7,7 @@ import (
 )
 
 type config struct {
+	LogLevel      string
 	SensorName    string
 	GPIOPinName   string
 	DHTmodel      string
@@ -18,6 +19,8 @@ type config struct {
 }
 
 func readConfig() config {
+	logLevel := flag.String("log-level", "info", "log level (debug, info, warn, error, fatal, panic, disabled)")
+
 	sensorName := flag.String("sensor-name", "sensor", "sensor name")
 	gpioPinName := flag.String("gpio-pin", "GPIO4", "GPIO PIN Name on which the sensor is connected")
 	dhtModel := flag.String("dht-model", "DHT22", "DHT sensor model: DHT11 or DHT22")
@@ -40,6 +43,7 @@ func readConfig() config {
 	}
 
 	return config{
+		LogLevel:      *logLevel,
 		SensorName:    *sensorName,
 		GPIOPinName:   *gpioPinName,
 		DHTmodel:      *dhtModel,

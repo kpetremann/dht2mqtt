@@ -31,6 +31,7 @@ func watchAndPublish(sensorName string, publisher mqtt.Publisher, ch <-chan sens
 
 func main() {
 	cfg := readConfig()
+	configureLogging(cfg.LogLevel)
 
 	// Connect to the DHT sensor
 	log.Info().Msgf("connecting to sensor on %s", cfg.GPIOPinName)
