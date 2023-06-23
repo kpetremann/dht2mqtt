@@ -1,6 +1,6 @@
 # DHT2MQTT
 
-DHT2MQTT is a yet another tool to send DHT11/DHT22 metrics to MQTT.
+DHT2MQTT is yet another tool to send DHT11/DHT22 metrics to MQTT.
 
 It is designed to be compatible with [mqtt-exporter](https://github.com/kpetremann/mqtt-exporter).
 
@@ -12,23 +12,28 @@ It leverages [MichaelS11/go-dht](https://github.com/MichaelS11/go-dht).
 
 ### Build from source
 
-```CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=5 go build ./cmd/dht2mqtt```
+```CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=7 go build ./cmd/dht2mqtt```
 
 ### Usage
 
 ```
-./dht2mqtt -h
 Usage of ./dht2mqtt:
+  -dht-model string
+        DHT sensor model: DHT11 or DHT22 (default "DHT22")
+  -fahrenheit
+        Temperature unit. Fahrenheit if set, default is Celcius
   -gpio-pin string
-    	GPIO PIN Name on which the sensor is connected (default "GPIO4")
+        GPIO PIN Name on which the sensor is connected (default "GPIO4")
+  -log-level string
+        log level (debug, info, warn, error, fatal, panic, disabled) (default "info")
   -mqtt-topic-root string
-    	MQTT url, example: dh2mqtt/ (default "dh2mqtt/")
+        MQTT url, example: dh2mqtt/ (default "dh2mqtt/")
   -mqtt-url string
-    	MQTT url, example: tcp://127.0.0.1:1883
+        MQTT url, example: tcp://127.0.0.1:1883
   -mqtt-username string
-    	username to connect to MQTT. The password must be set as in 'DHT2MQTT_PASSWORD' varenv
+        username to connect to MQTT. The password must be set as in 'DHT2MQTT_PASSWORD' varenv
   -sensor-name string
-    	sensor name (default "sensor")
+        sensor name (default "sensor")
 ```
 
 Example:
