@@ -32,7 +32,7 @@ Usage of ./dht2mqtt:
   -log-level string
         log level (debug, info, warn, error, fatal, panic, disabled) (default "info")
   -mqtt-topic-root string
-        MQTT url, example: dh2mqtt/ (default "dh2mqtt/")
+        MQTT url, example: dht2mqtt/ (default "dht2mqtt/")
   -mqtt-url string
         MQTT url, example: tcp://127.0.0.1:1883
   -mqtt-username string

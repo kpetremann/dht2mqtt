@@ -27,7 +27,7 @@ func readConfig() config {
 	fahrenheit := flag.Bool("fahrenheit", false, "Temperature unit. Fahrenheit if set, default is Celcius")
 
 	mqttUrl := flag.String("mqtt-url", "", "MQTT url, example: tcp://127.0.0.1:1883")
-	mqttTopicRoot := flag.String("mqtt-topic-root", "dh2mqtt/", "MQTT url, example: dh2mqtt/")
+	mqttTopicRoot := flag.String("mqtt-topic-root", "dht2mqtt/", "MQTT url, example: dht2mqtt/")
 
 	mqttUsername := flag.String("mqtt-username", "", "username to connect to MQTT. The password must be set as in 'DHT2MQTT_PASSWORD' varenv")
 	mqttPassword := os.Getenv("DHT2MQTT_PASSWORD")
