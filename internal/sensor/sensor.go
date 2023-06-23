@@ -41,10 +41,10 @@ func WatchSensor(ctx context.Context, dht *dht.DHT, ch chan<- Payload) {
 
 		select {
 		case <-timer.C:
-			if humidity, temperature, err := dht.ReadRetry(2); err != nil {
+			if humidity, temperature, err := dht.ReadRetry(3); err != nil {
 				log.Warn().Err(err).Msg("sensor read error")
 			} else {
-				log.Info().Msgf("sensor read: temperature='%f' humidity='%f'", temperature, humidity)
+				log.Debug().Msgf("sensor read: temperature='%f' humidity='%f'", temperature, humidity)
 				ch <- Payload{Temperature: temperature, Humidity: humidity}
 			}
 		case <-ctx.Done():

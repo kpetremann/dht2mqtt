@@ -72,7 +72,7 @@ func (p *Publisher) Publish(sensorName string, payload interface{}) error {
 		return err
 	}
 
-	log.Printf("publishing new MQTT message: '%s %s'", p.topicRoot+sensorName, data)
+	log.Debug().Msgf("publishing new MQTT message: '%s %s'", p.topicRoot+sensorName, data)
 	t := p.client.Publish(p.topicRoot+sensorName, 0, false, data)
 	if ok := t.Wait(); !ok {
 		return errors.New("MQTT server did not confirm receiving the message")
