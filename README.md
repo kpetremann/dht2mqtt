@@ -40,3 +40,35 @@ Example:
 ```
 ~ $ DHT2MQTT_PASSWORD="awesomepassword" ./dht2mqtt -mqtt-url tcp://10.0.0.1:1883 -sensor-name garden -mqtt-username dht
 ```
+
+### Systemd service example
+
+* Put the binary somewhere like in `/usr/local/bin/`.
+* Create the file `/etc/systemd/system/dht2mqtt` with the following content:
+
+```
+[Unit]
+Description = dht2mqtt
+Wants = network-online.target
+After = network-online.target
+
+[Install]
+WantedBy = multi-user.target
+
+[Service]
+Type = simple
+Environment = "DHT2MQTT_PASSWORD=<awesomepassword>"
+ExecStart = /usr/local/bin/dht2mqtt -mqtt-url tcp://10.0.0.:1883 -sensor-name <sensor-name> -mqtt-username <user>
+```
+
+**Do not forget to adapt the variables.**
+
+* Then simply run it and enable on boot:
+```
+sudo systemctl daemon-reload
+
+systemctl enable --now dht2mqtt
+# or:
+sudo systemctl enable dht2mqtt
+sudo systemctl start dht2mqtt
+```
