@@ -19,7 +19,10 @@ func watchAndPublish(sensorName string, publisher mqtt.Publisher, ch <-chan sens
 	for sensorPayload := range ch {
 		if sensorPayload.EqualTo(lastPayload) || time.Since(lastChange) > 5*time.Minute {
 			lastPayload = sensorPayload
-			publisher.Publish(sensorName, sensorPayload)
+			err := publisher.Publish(sensorName, sensorPayload)
+			if err != nil {
+				log.Error().Err(err).Msg("failed to publish message to MQTT")
+			}
 			lastChange = time.Now()
 		}
 	}
