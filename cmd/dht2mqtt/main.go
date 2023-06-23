@@ -17,7 +17,7 @@ func watchAndPublish(sensorName string, publisher mqtt.Publisher, ch <-chan sens
 	var lastPayload sensor.Payload
 	lastChange := time.Now()
 	for sensorPayload := range ch {
-		if sensorPayload.EqualTo(lastPayload) || time.Since(lastChange) > 5*time.Minute {
+		if !sensorPayload.EqualTo(lastPayload) || time.Since(lastChange) > 5*time.Minute {
 			lastPayload = sensorPayload
 			err := publisher.Publish(sensorName, sensorPayload)
 			if err != nil {
