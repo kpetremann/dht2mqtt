@@ -1,3 +1,8 @@
+[![status](https://img.shields.io/badge/status-alpha-red)](https://github.com/kpetremann/dht2mqtt)
+[![Go](https://img.shields.io/github/go-mod/go-version/kpetremann/dht2mqtt)](https://github.com/kpetremann/dht2mqtt)
+[![CI](https://github.com/kpetremann/dht2mqtt/actions/workflows/go.yml/badge.svg)](https://github.com/kpetremann/dht2mqtt/actions/workflows/go.yml)
+[![GitHub](https://img.shields.io/github/license/kpetremann/dht2mqtt)](https://github.com/kpetremann/dht2mqtt/blob/main/LICENSE)
+
 # DHT2MQTT
 
 DHT2MQTT is yet another tool to send DHT11/DHT22 metrics to MQTT.
