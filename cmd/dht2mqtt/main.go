@@ -42,12 +42,10 @@ func main() {
 	log.Info().Msg("connected to sensor")
 
 	// Connect to MQTT server
-	log.Info().Msgf("connecting to MQTT server")
 	publisher := mqtt.NewPublisher(cfg.MQTTUrl, cfg.MQTTTopicRoot, cfg.MQTTUsername, cfg.MQTTPassword)
 	if err := publisher.Connect(); err != nil {
 		log.Fatal().Err(err).Msg("publisher init error")
 	}
-	log.Info().Msgf("connected to MQTT server")
 
 	// Watch for metrics
 	ch := make(chan sensor.Payload, 10)
