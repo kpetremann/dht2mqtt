@@ -1,20 +1,20 @@
 module github.com/kpetremann/dht2mqtt
 
-go 1.20
+go 1.21
 
 require (
 	github.com/MichaelS11/go-dht v0.1.1
-	github.com/eclipse/paho.mqtt.golang v1.4.2
-	github.com/rs/zerolog v1.29.1
+	github.com/eclipse/paho.mqtt.golang v1.4.3
+	github.com/rs/zerolog v1.31.0
 )
 
 require (
-	github.com/gorilla/websocket v1.4.2 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
-	golang.org/x/net v0.17.0 // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
-	golang.org/x/sys v0.13.0 // indirect
+	github.com/gorilla/websocket v1.5.1 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.20 // indirect
+	golang.org/x/net v0.19.0 // indirect
+	golang.org/x/sync v0.5.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
 	periph.io/x/conn/v3 v3.7.0 // indirect
 	periph.io/x/host/v3 v3.8.2 // indirect
 )
